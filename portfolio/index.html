@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joy Xavier | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+
+body{
+  background:#0f172a;
+  color:#e5e7eb;
+  line-height:1.7;
+  scroll-behavior:smooth;
+}
+
+body.light{
+  background:#f8fafc;
+  color:#020617;
+}
+
+/* NAVBAR */
+nav{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#020617;
+  padding:15px 10%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+nav a{
+  color:#94a3b8;
+  text-decoration:none;
+  margin:0 10px;
+  font-weight:500;
+}
+
+nav a.active{
+  color:#38bdf8;
+  border-bottom:2px solid #38bdf8;
+}
+
+/* HEADER */
+header{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  position:relative;
+  z-index:1;
+}
+
+header::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(15,23,42,0.65);
+  z-index:-1;
+}
+
+h1{font-size:3.4rem;color:#38bdf8}
+h2{color:#38bdf8;margin-bottom:20px}
+
+/* PROFILE PHOTO */
+.profile-pic{
+  width:280px;
+  height:280px;
+  border-radius:26px;
+  object-fit:cover;
+  border:5px solid #38bdf8;
+  box-shadow:0 30px 90px rgba(56,189,248,.7);
+  margin-bottom:25px;
+  transition:.4s;
+}
+
+/* SECTIONS */
+section{padding:90px 10%}
+
+.card{
+  background:rgba(2,6,23,0.88);
+  backdrop-filter:blur(10px);
+  padding:30px;
+  border-radius:18px;
+  margin-bottom:30px;
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 40px rgba(56,189,248,.25);
+}
+
+/* SKILLS */
+.progress{
+  background:#1e293b;
+  border-radius:10px;
+  overflow:hidden;
+  margin:10px 0 18px;
+}
+.progress div{height:8px;background:#38bdf8}
+
+/* PROJECT PREVIEW */
+.project{
+  display:grid;
+  grid-template-columns:1fr 1.6fr;
+  gap:30px;
+  align-items:center;
+}
+.project img{
+  width:100%;
+  border-radius:16px;
+  border:2px solid #38bdf8;
+}
+
+/* CONTACT */
+input,textarea{
+  width:100%;
+  padding:10px;
+  margin-bottom:10px;
+  border-radius:8px;
+  border:none;
+}
+
+/* FOOTER */
+footer{
+  background:#020617;
+  padding:70px 10% 30px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:40px;
+}
+
+.footer-grid h3{
+  color:#38bdf8;
+  margin-bottom:12px;
+}
+
+.footer-grid p,
+.footer-grid a{
+  color:#94a3b8;
+  font-size:0.95rem;
+  text-decoration:none;
+  line-height:1.7;
+}
+
+.footer-grid a:hover{color:#38bdf8}
+
+.footer-bottom{
+  text-align:center;
+  margin-top:40px;
+  font-size:0.85rem;
+  color:#64748b;
+}
+
+/* LIGHT MODE FIX */
+body.light nav{background:#e5e7eb}
+body.light nav a{color:#020617}
+body.light header::before{background:rgba(248,250,252,0.75)}
+body.light .card{background:#ffffff;color:#020617}
+body.light h1, body.light h2{color:#0f172a}
+body.light .progress{background:#e5e7eb}
+body.light footer{background:#e5e7eb}
+body.light footer p,
+body.light footer a{color:#020617}
+body.light input,
+body.light textarea{background:#f1f5f9;color:#020617}
+
+@media(max-width:768px){
+  .project{grid-template-columns:1fr}
+  .profile-pic{width:200px;height:200px}
+  .footer-grid{grid-template-columns:1fr}
+}
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.spinner {
+  width:18px;
+  height:18px;
+  border:3px solid #020617;
+  border-top:3px solid transparent;
+  border-radius:50%;
+  display:inline-block;
+  animation:spin 0.8s linear infinite;
+  vertical-align:middle;
+  margin-right:6px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+  <strong style="color:#38bdf8">Joy Xavier</strong>
+  <div>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+    <a href="joy_resume.pdf" download style="color:#38bdf8">Resume</a>
+    <button onclick="toggleTheme()">🌙</button>
+  </div>
+</nav>
+
+<header id="vanta-bg">
+  <img src="profile..png" class="profile-pic" id="profilePic">
+  <h1>Joy Xavier</h1>
+  <p>
+    B.Tech Information Technology Student | Full Stack Development & UI/UX Design
+  </p>
+</header>
+
+<section id="about">
+<h2>About Me</h2>
+<div class="card">
+I am a motivated and detail-oriented B.Tech Information Technology student with a strong
+interest in full stack web development, UI/UX design, and real-world software development.
+I enjoy transforming ideas into functional, responsive, and user-friendly applications.
+Through academic projects, internships, and self-learning, I have gained hands-on
+experience in frontend development, backend integration, and database management.
+I am eager to continuously learn new technologies and contribute effectively to
+organizational growth.
+</div>
+</section>
+
+<section id="education">
+<h2>Education</h2>
+<div class="card">
+<strong>Bachelor of Technology – Information Technology</strong><br>
+Vel Tech High Tech Dr. Rangarajan Dr. Sakunthala Engineering College, Avadi, Chennai<br>
+Duration: 2023 – 2027<br>
+CGPA: 8.88
+</div>
+<div class="card">
+<strong>Higher Secondary Certificate (HSC)</strong><br>
+Don Bosco Matriculation Higher Secondary School, Chennai<br>
+Year: 2022 – 2023<br>
+Percentage: 82%
+</div>
+</section>
+
+<section id="projects">
+<h2>Projects</h2>
+
+<div class="card project">
+<img src="C:\Users\Admin\Desktop\java_emp\image/Voting.png">
+<div>
+<strong>Online Voting System</strong><br><br>
+A secure web-based application designed to conduct elections digitally in an efficient
+and transparent manner. The system allows authenticated users to cast votes securely
+while administrators manage elections and generate results.<br><br>
+<a href="C:\Users\Admin\Desktop\java_emp\projects/voting.html" style="color:#38bdf8">View Full Project →</a>
+</div>
+</div>
+
+<div class="card project">
+<img src="C:\Users\Admin\Desktop\java_emp\image/restaurant.png">
+<div>
+<strong>Restaurant Reservation Website</strong><br><br>
+A full-stack restaurant website that enables customers to reserve tables online and
+submit feedback, while administrators manage reservations and testimonials through
+a secure dashboard.<br><br>
+<a href="C:\Users\Admin\Desktop\java_emp\projects/restaurant.html" style="color:#38bdf8">View Full Project →</a>
+</div>
+</div>
+
+<div class="card project">
+<img src="C:\Users\Admin\Desktop\java_emp\image/vioce.png">
+<div>
+<strong>Voice into Gesture</strong><br><br>
+An accessibility-focused application that converts spoken voice commands into gesture-
+based visual outputs to assist individuals with communication challenges.<br><br>
+<a href="C:\Users\Admin\Desktop\java_emp\projects/voice.html" style="color:#38bdf8">View Full Project →</a>
+</div>
+</div>
+</section>
+
+<section id="skills">
+<h2>Technical Skills</h2>
+<div class="card">
+HTML & CSS<div class="progress"><div style="width:85%"></div></div>
+Java Programming<div class="progress"><div style="width:85%"></div></div>
+JavaScript<div class="progress"><div style="width:70%"></div></div>
+Python<div class="progress"><div style="width:75%"></div></div>
+PHP & MySQL<div class="progress"><div style="width:65%"></div></div>
+CodeIgniter<div class="progress"><div style="width:85%"></div></div>
+Cloud Computing<div class="progress"><div style="width:50%"></div></div>
+UI/UX Design (Figma)<div class="progress"><div style="width:75%"></div></div>
+</div>
+</section>
+
+<section id="experience">
+<h2>Experience & Certifications</h2>
+<div class="card">
+<strong>Full Stack Development Intern – Digisailor</strong><br>
+Worked on real-world web applications involving frontend development, backend logic,
+database management, and admin dashboards using HTML, CSS, JavaScript, PHP, and MySQL.
+</div>
+<div class="card">
+NPTEL Certification – Cloud Computing (Elite)<br>
+Master in Software Engineering – Apollo Institute (2024)
+</div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+
+  <div class="card">
+    <p>
+      I am open to internship opportunities, entry-level roles, freelance projects,
+      and collaborations. If you would like to discuss a project, opportunity,
+      or just connect professionally, feel free to reach out using the form below.
+    </p>
+
+    <br>
+
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="Your Full Name" required>
+
+      <input type="email" name="email" placeholder="Your Email Address" required>
+
+      <textarea name="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+      <button id="sendBtn"
+  style="background:#38bdf8;color:#020617;padding:10px 18px;
+  border-radius:10px;border:none;font-weight:600;cursor:pointer">
+  Send Message
+</button>
+    </form>
+
+    <p id="success" style="display:none;color:#38bdf8;margin-top:15px;font-weight:500">
+      ✅ Your message has been sent successfully!
+    </p>
+
+    <hr style="margin:30px 0;border:0;border-top:1px solid #334155">
+
+    <p>
+      <strong>Email:</strong> joyxavier1813@gmail.com <br>
+      <strong>Location:</strong> Chennai, India
+    </p>
+  </div>
+</section>
+
+
+<footer>
+<div class="footer-grid">
+  <div>
+    <h3>About This Portfolio</h3>
+    <p>
+      This portfolio showcases my academic background, technical skills, and hands-on
+      project experience in full stack development and UI/UX design. It reflects my
+      continuous learning journey and passion for building meaningful digital solutions.
+    </p>
+  </div>
+  <div>
+    <h3>Quick Links</h3>
+    <a href="#about">About</a><br>
+    <a href="#projects">Projects</a><br>
+    <a href="#skills">Skills</a><br>
+    <a href="#contact">Contact</a>
+  </div>
+  <div>
+    <h3>Connect</h3>
+    <p>Chennai, India</p>
+    <a href="mailto:joyxavier1813@gmail.com">Email</a><br>
+    <a href="https://github.com/" target="_blank">GitHub</a><br>
+    <a href="https://www.linkedin.com/in/joy-xavier-1b34b731a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">LinkedIn</a>
+  </div>
+</div>
+<div class="footer-bottom">
+  © 2026 Joy Xavier · Designed & Developed by Joy Xavier
+</div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+
+<script>
+AOS.init();
+
+function toggleTheme(){
+  document.body.classList.toggle("light");
+  const pic=document.getElementById("profilePic");
+  pic.style.transform=document.body.classList.contains("light")
+    ?"rotate(3deg) scale(1.05)"
+    :"rotate(0deg) scale(1)";
+}
+(function(){
+  emailjs.init("2L80nXAG-4sNrTFEb");
+})();
+
+document.getElementById("contact-form").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const btn = document.getElementById("sendBtn");
+  btn.innerHTML = '<span class="spinner"></span> Sending...';
+  btn.classList.add("loading");
+
+  emailjs.sendForm(
+    "service_fm7gget",
+    "template_d1v10yz",
+    this
+  ).then(() => {
+    document.getElementById("success").style.display = "block";
+    btn.innerHTML = "Send Message";
+    btn.classList.remove("loading");
+    this.reset();
+  }, () => {
+    btn.innerHTML = "Send Message";
+    btn.classList.remove("loading");
+    alert("❌ Failed to send message. Please try again.");
+  });
+});
+
+
+
+VANTA.BIRDS({
+  el:"#vanta-bg",
+  mouseControls:true,
+  touchControls:true,
+  gyroControls:false,
+  backgroundAlpha:0.0,
+  color1:0x38bdf8,
+  color2:0x7dd3fc,
+  birdSize:1.2,
+  speedLimit:4.0,
+  quantity:3
+});
+</script>
+
+</body>
+</html>
